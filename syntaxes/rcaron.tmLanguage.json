@@ -1,0 +1,191 @@
+{
+	"name": "rcaron",
+	"scopeName": "source.rcaron",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+    {
+			"include": "#languageConstant"
+		},
+    {
+			"include": "#number"
+		},
+    {
+			"include": "#controlKeyword"
+		},
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#functionDeclaration"
+    },
+    {
+      "include": "#classDeclaration"
+    },
+    {
+      "include": "#builtInConversionFunctions"
+    },
+    {
+      "include": "#builtInFunctions"
+    },
+    {
+      "include": "#externThing"
+    },
+    {
+      "include": "#methodCall"
+    }
+	],
+	"repository": {
+    "languageConstant": {
+      "match": "\\$(null|true|false)",
+      "name": "constant.language.rcaron"
+    },
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*\\*(?!/)",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.json"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.documentation.json"
+				},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.json"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.json"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.json"
+						}
+					},
+					"match": "(//).*$\\n?",
+					"name": "comment.line.double-slash.js"
+				}
+			]
+		},
+		"number": {
+			"match": "([0-9]+)(\\.[0-9]+)?",
+			"name": "constant.numeric"
+		},
+		"controlKeyword": {
+			"match": "(?i)((dowhile)|(loop)|(while)|(return)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default))",
+			"name": "keyword.control"
+		},
+    "variable":{
+      "match": "(\\$)([0-9a-z_A-Z]+)",
+      "name": "variable",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.variable.rcaron"
+        },
+        "2": {
+          "name": "variable.other.readwrite.rcaron"
+        }
+      }
+    },
+    "string": {
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.rcaron"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.rcaron"
+				}
+			},
+      "name": "string.quoted.single",
+      "patterns":[
+        {
+          "include": "#singleQuotedStringContent"
+        }
+      ]
+    },
+		"functionDeclaration": {
+			"comment": "Function declaration",
+			"match": "(?i)(func)\\s+(\\w+)(?=\\()",
+			"captures": {
+				"1": {
+					"name": "keyword.function.rcaron"
+				},
+				"2": {
+					"patterns": [
+						{
+							"match": "\\d\\w*",
+							"name": "invalid.illegal.identifier.rcaron"
+						},
+						{
+							"match": "\\w+",
+							"name": "entity.name.function.rcaron"
+						}
+					]
+				}
+			}
+		},
+		"classDeclaration": {
+			"comment": "Class declaration",
+			"match": "(?i)(class)\\s+(\\w+)",
+			"captures": {
+				"1": {
+					"name": "keyword.class.rcaron"
+				},
+				"2": {
+          "name": "entity.name.class.rcaron"
+				}
+			}
+		},
+    "builtInConversionFunctions": {
+      "comment": "Built-in type conversion functions",
+      "match": "(?i)(float|string|int32|int64)",
+      "name": "support.function.builtin.rcaron"
+    },
+		"builtInFunctions": {
+			"comment": "Built-in functions",
+			"match": "(?i)(print|open|open_ext)",
+			"name": "support.function.builtin.rcaron"
+		},
+    "externThing":{
+      "match": "(#)([\\w\\._]+)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.annotation.rcaron"
+				},
+				"2": {
+          "name": "entity.name.type.rcaron"
+				}
+			}
+    },
+		"singleQuotedStringContent": {
+			"patterns": [
+				{
+					"match": "\\\\(?:['\\\\0abfnrtv])",
+					"name": "constant.character.escape"
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal"
+				}
+			]
+		},
+    "methodCall": {
+      "match": "(?i)(\\w+)\\s*\\(",
+      "name": "support.function.rcaron"
+    }
+	}
+}
