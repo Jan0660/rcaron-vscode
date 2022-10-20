@@ -7,7 +7,7 @@
     "version": "0.0.1",
     "publisher": "Jan0660",
     "engines": {
-        "vscode": "^1.71.0"
+        "vscode": "^1.71.2"
     },
     "categories": [
       "Programming Languages"
@@ -63,15 +63,13 @@
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -p ./",
-        "update-vscode": "node ./node_modules/vscode/bin/install",
-        "postinstall": "node ./node_modules/vscode/bin/install"
+        "compile": "tsc -p ./"
     },
     "devDependencies": {
         "@types/mocha": "8.0.0",
         "@types/node": "14.0.25",
         "typescript": "3.9.10",
-        "vscode": "1.1.37"
+        "@types/vscode": "1.72.0"
     },
     "dependencies": {
         "vscode-languageclient": "^7.0.0-next.8",
