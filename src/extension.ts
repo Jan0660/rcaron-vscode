@@ -23,7 +23,7 @@ import { createClientPipeTransport } from "vscode-jsonrpc/node";
 import { createConnection } from "net";
 
 export function activate(context: ExtensionContext) {
-    return;
+    // return;
     // The server is implemented in node
     let serverExe = "dotnet";
 
@@ -34,7 +34,10 @@ export function activate(context: ExtensionContext) {
 
     // If the extension is launched in debug mode then the debug server options are used
     // Otherwise the run options are used
-    let dll = "C:/Users/Jan/RiderProjects/RCaron/SampleServer/bin/Release/net7.0/win-x64/SampleServer.dll";
+    // let dll = "C:/Users/Jan/RiderProjects/RCaron/RCaron.LanguageServer/bin/Release/net7.0/win-x64/RCaron.LanguageServer.dll";
+    let dll = workspace.getConfiguration('rcaron', workspace.workspaceFolders[0].uri).get<string>('languageServerPath');
+    if (dll == null)
+        return;
     let serverOptions: ServerOptions = {
         // run: { command: serverExe, args: ['-lsp', '-d'] },
         run: {
@@ -72,9 +75,9 @@ export function activate(context: ExtensionContext) {
         progressOnInitialization: true,
         synchronize: {
             // Synchronize the setting section 'languageServerExample' to the server
-            configurationSection: "languageServerExample",
+            configurationSection: "rcaron",
             fileEvents: workspace.createFileSystemWatcher("**/*.rcaron"),
-            
+
         },
     };
 

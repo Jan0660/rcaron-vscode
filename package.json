@@ -39,25 +39,14 @@
             "path": "./syntaxes/rcaron.tmLanguage.json"
           }
         ],
-        
         "configuration": {
             "type": "object",
-            "title": "Example configuration",
+            "title": "RCaron",
             "properties": {
-                "languageServerExample.maxNumberOfProblems": {
-                    "type": "number",
-                    "default": 100,
-                    "description": "Controls the maximum number of problems produced by the server."
-                },
-                "languageServerExample.trace.server": {
+                "rcaron.languageServerPath": {
                     "type": "string",
-                    "enum": [
-                        "off",
-                        "messages",
-                        "verbose"
-                    ],
-                    "default": "verbose",
-                    "description": "Traces the communication between VSCode and the languageServerExample service."
+                    "default": null,
+                    "markdownDescription": "Path to the language server. It is currently not provided by the extension itself so you have to compile it yourself from [this folder](https://github.com/Jan0660/RCaron/tree/master/RCaron.LanguageServer). Remember to reload after changing this."
                 }
             }
         }
