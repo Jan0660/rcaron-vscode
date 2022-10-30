@@ -27,7 +27,7 @@
         "languages": [
             {
               "id": "rcaron",
-              "extensions": [ ".rcaron" ],
+              "extensions": [ ".rcaron", ".ř" ],
               "aliases": [ "RCaron", "rcaron", "ř", "Ř" ],
               "configuration": "./language-configuration.json",
               "icon": {
