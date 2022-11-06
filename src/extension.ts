@@ -7,7 +7,7 @@
 
 import * as path from "path";
 
-import { workspace, Disposable, ExtensionContext } from "vscode";
+import { workspace, Disposable, ExtensionContext, l10n } from "vscode";
 import {
     LanguageClient,
     LanguageClientOptions,
@@ -82,7 +82,7 @@ export function activate(context: ExtensionContext) {
     };
 
     // Create the language client and start the client.
-    const client = new LanguageClient("languageServerExample", "Language Server Example", serverOptions, clientOptions);
+    const client = new LanguageClient("rcaron.languageServer", l10n.t("languageServerLogs.name"), serverOptions, clientOptions);
     client.registerProposedFeatures();
     client.trace = Trace.Verbose;
     let disposable = client.start();

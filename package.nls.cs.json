@@ -1,0 +1,3 @@
+{
+    "rcaron.configuration.languageServerPath.description": "Cesta k jazykovému serveru. Jazykový server zatím neni poskytnut tímto rozšířením, tak si ho musíte kompilovat sami [odtuď](https://github.com/Jan0660/RCaron/tree/master/RCaron.LanguageServer). Po zmeně tohoto nastavení restartujte VSCode."
+}
