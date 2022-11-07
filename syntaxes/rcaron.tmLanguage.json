@@ -82,7 +82,7 @@
             "name": "constant.numeric"
         },
         "controlKeyword": {
-            "match": "(?i)((dowhile)|(loop)|(while)|(return)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default)|(try)|(catch)|(finally))",
+            "match": "(?i)((dowhile)|(loop)|(while)|(return)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default)|(try)|(catch)|(finally)|(throw))",
             "name": "keyword.control"
         },
         "variable": {
