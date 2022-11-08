@@ -50,6 +50,16 @@
         "language": "rcaron",
         "scopeName": "source.rcaron",
         "path": "./syntaxes/rcaron.tmLanguage.json"
+      },
+      {
+        "scopeName": "markdown.rcaron.codeblock",
+        "path": "./syntaxes/rcaron-md-injection.tmLanguage.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.rcaron": "rcaron"
+        }
       }
     ],
     "configuration": {
