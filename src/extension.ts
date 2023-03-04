@@ -69,7 +69,7 @@ export function activate(context: ExtensionContext) {
     };
 
     // Create the language client and start the client.
-    const client = new LanguageClient("rcaron.languageServer", l10n.t("languageServerLogs.name"), serverOptions, clientOptions);
+    const client = new LanguageClient("rcaron.languageServer", l10n.t("RCaron Language Server"), serverOptions, clientOptions);
     client.registerProposedFeatures();
     client.trace = Trace.Verbose;
     let disposable = client.start();

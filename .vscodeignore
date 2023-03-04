@@ -1,9 +1,11 @@
-.vscode/**
-typings/**
-out/test/**
-test/**
-src/**
+.vscode/
+.github/
+node_modules/
+test/
+src/
 **/*.map
 .gitignore
 tsconfig.json
-vsc-extension-quickstart.md
+gulpfile.js
+.prettierrc
+yarn.lock
