@@ -185,7 +185,9 @@
         },
         "methodCall": {
             "match": "(?i)(\\w+)\\s*\\(",
-            "name": "support.function.rcaron"
+            "captures": {
+                "1": { "name": "support.function.rcaron" }
+            }
         }
     }
 }
