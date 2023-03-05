@@ -14,7 +14,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn vscode:prepublish
       - name: install vsce
-        run: yarn global add vsce
+        run: yarn global add @vscode/vsce
       - run: vsce package
       - name: upload package
         uses: actions/upload-artifact@v3
