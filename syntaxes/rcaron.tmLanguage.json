@@ -178,6 +178,16 @@
                     "name": "constant.character.escape"
                 },
                 {
+                    "comment": "utf 16 escapes",
+                    "match": "\\\\u([0-9a-fA-F]{4})",
+                    "name": "constant.character.escape"
+                },
+                {
+                    "comment": "utf 32 escapes",
+                    "match": "\\\\U([0-9a-fA-F]{8})",
+                    "name": "constant.character.escape"
+                },
+                {
                     "match": "\\\\.",
                     "name": "invalid.illegal"
                 }
