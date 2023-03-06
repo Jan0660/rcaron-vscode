@@ -22,7 +22,7 @@ import {
 import { createClientPipeTransport } from "vscode-jsonrpc/node";
 import { createConnection } from "net";
 
-export function activate(context: ExtensionContext) {
+export async function activate(context: ExtensionContext) {
     // If the extension is launched in debug mode then the debug server options are used
     // Otherwise the run options are used
     let serverPath = workspace.getConfiguration('rcaron', workspace.workspaceFolders[0].uri).get<string>('languageServerPath');
@@ -70,11 +70,10 @@ export function activate(context: ExtensionContext) {
 
     // Create the language client and start the client.
     const client = new LanguageClient("rcaron.languageServer", l10n.t("RCaron Language Server"), serverOptions, clientOptions);
-    client.registerProposedFeatures();
-    client.trace = Trace.Verbose;
-    let disposable = client.start();
+    client.setTrace(Trace.Verbose);
+    await client.start();
 
     // Push the disposable to the context's subscriptions so that the
     // client can be deactivated on extension deactivation
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(client);
 }
