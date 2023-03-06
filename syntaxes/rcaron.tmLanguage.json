@@ -47,23 +47,13 @@
         "comments": {
             "patterns": [
                 {
-                    "begin": "/\\*\\*(?!/)",
+                    "begin": "/#",
                     "captures": {
                         "0": {
                             "name": "punctuation.definition.comment.json"
                         }
                     },
-                    "end": "\\*/",
-                    "name": "comment.block.documentation.json"
-                },
-                {
-                    "begin": "/\\*",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.json"
-                        }
-                    },
-                    "end": "\\*/",
+                    "end": "#/",
                     "name": "comment.block.json"
                 },
                 {
