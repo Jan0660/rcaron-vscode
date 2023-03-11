@@ -65,7 +65,8 @@
         "rcaron.languageServerPath": {
           "type": "string",
           "default": null,
-          "markdownDescription": "%rcaron.configuration.languageServerPath.description%"
+          "markdownDescription": "%rcaron.configuration.languageServerPath.description%",
+          "scope": "resource"
         }
       }
     }
