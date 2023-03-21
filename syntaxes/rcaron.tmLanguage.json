@@ -77,8 +77,24 @@
             ]
         },
         "number": {
-            "match": "([0-9]+)(\\.[0-9]+)?",
-            "name": "constant.numeric"
+            "patterns": [
+                {
+                    "match": "(0x)([0-9a-fA-F]+)([uUiIlLfFdDmM]{1,2})?",
+                    "captures": {
+                        "0": { "name": "definition.string.quoted.double.untitled" },
+                        "1": { "name": "constant.numeric.hex.rcaron"},
+                        "2": { "name": "constant.numeric.other.suffix.rcaron"}
+                    },
+                    "name": "constant.numeric"
+                },
+                {
+                    "match": "([0-9]+)(\\.[0-9]+)?([uUiIlLfFdDmM]{1,2})?",
+                    "captures": {
+                        "2": { "name": "constant.numeric.other.suffix.rcaron" }
+                    },
+                    "name": "constant.numeric"
+                }
+            ]
         },
         "controlKeyword": {
             "match": "(?i)((dowhile)|(loop)|(while)|(return)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default)|(try)|(catch)|(finally)|(throw))",
@@ -156,7 +172,7 @@
         },
         "builtInFunctions": {
             "comment": "Built-in functions",
-            "match": "(?i)(print|open|open_ext)",
+            "match": "(?i)(println|print|open_ext|open)",
             "name": "support.function.builtin.rcaron"
         },
         "externThing": {
