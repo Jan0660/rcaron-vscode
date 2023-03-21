@@ -50,20 +50,29 @@
                     "begin": "/#",
                     "captures": {
                         "0": {
-                            "name": "punctuation.definition.comment.json"
+                            "name": "punctuation.definition.comment.rcaron"
                         }
                     },
                     "end": "#/",
-                    "name": "comment.block.json"
+                    "name": "comment.block.rcaron"
                 },
                 {
                     "captures": {
                         "1": {
-                            "name": "punctuation.definition.comment.json"
+                            "name": "punctuation.definition.comment.rcaron"
                         }
                     },
                     "match": "(//).*$\\n?",
-                    "name": "comment.line.double-slash.js"
+                    "name": "comment.line.double-slash.rcaron"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.comment.rcaron"
+                        }
+                    },
+                    "match": "(#!).*$\\n?",
+                    "name": "comment.line.rcaron meta.shebang.rcaron"
                 }
             ]
         },
