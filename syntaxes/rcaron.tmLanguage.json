@@ -79,7 +79,7 @@
         "number": {
             "patterns": [
                 {
-                    "match": "(0x)([0-9a-fA-F]+)([uUiIlLfFdDmM]{1,2})?",
+                    "match": "(0x)([0-9a-fA-F_]+)([uUiIlLfFdDmM]{1,2})?",
                     "captures": {
                         "0": { "name": "definition.string.quoted.double.untitled" },
                         "1": { "name": "constant.numeric.hex.rcaron"},
@@ -88,7 +88,7 @@
                     "name": "constant.numeric"
                 },
                 {
-                    "match": "([0-9]+)(\\.[0-9]+)?([uUiIlLfFdDmM]{1,2})?",
+                    "match": "([0-9][0-9_]*)(\\.[0-9][0-9_]*)?([uUiIlLfFdDmM]{1,2})?",
                     "captures": {
                         "2": { "name": "constant.numeric.other.suffix.rcaron" }
                     },
