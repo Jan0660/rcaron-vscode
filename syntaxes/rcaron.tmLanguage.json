@@ -37,6 +37,9 @@
         },
         {
             "include": "#methodCall"
+        },
+        {
+            "include": "#staticProperty"
         }
     ],
     "repository": {
@@ -112,6 +115,17 @@
                 }
             }
         },
+        "staticProperty": {
+            "match": "(?i)(static) (\\$)([0-9a-z_A-Z]+)",
+            "name": "variable",
+            "captures": {
+                "1": { "name": "storage.modifier.static.rcaron" },
+                "2": {
+                    "name": "punctuation.definition.variable.rcaron"
+                },
+                "3": { "name": "variable.other.readwrite.rcaron" }
+            }
+        },
         "string": {
             "begin": "'",
             "beginCaptures": {
@@ -134,12 +148,15 @@
         },
         "functionDeclaration": {
             "comment": "Function declaration",
-            "match": "(?i)(func)\\s+(\\w+)(?=\\()",
+            "match": "(?i)(static )?(func)\\s+(\\w+)(?=\\()",
             "captures": {
                 "1": {
-                    "name": "keyword.function.rcaron"
+                    "name": "storage.modifier.static.rcaron"
                 },
                 "2": {
+                    "name": "keyword.function.rcaron"
+                },
+                "3": {
                     "patterns": [
                         {
                             "match": "\\d\\w*",
