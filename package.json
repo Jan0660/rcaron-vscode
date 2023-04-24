@@ -68,7 +68,7 @@
       "properties": {
         "rcaron.languageServerPath": {
           "type": "string",
-          "default": null,
+          "default": "rcaron-languageserver",
           "markdownDescription": "%rcaron.configuration.languageServerPath.description%",
           "scope": "resource"
         }
