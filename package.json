@@ -6,7 +6,11 @@
   "license": "MIT",
   "version": "0.0.1",
   "publisher": "Jan0660",
-  "repository": "https://github.com/Jan0660/rcaron-vscode",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jan0660/rcaron-vscode.git"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
