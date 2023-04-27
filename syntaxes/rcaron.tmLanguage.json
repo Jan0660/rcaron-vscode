@@ -18,6 +18,9 @@
             "include": "#variable"
         },
         {
+            "include": "#charLiteral"
+        },
+        {
             "include": "#string"
         },
         {
@@ -126,6 +129,74 @@
                 "3": { "name": "variable.other.readwrite.rcaron" }
             }
         },
+        "charLiteral": {
+            "patterns": [
+                {
+                    "include": "#charLiteralSingleQuoted"
+                },
+                {
+                    "include": "#charLiteralDoubleQuoted"
+                }
+            ]
+        },
+        "charLiteralSingleQuoted": {
+            "patterns": [
+                {
+                    "include": "#characterEscape"
+                }
+            ],
+            "begin": "@'",
+            "beginCaptures": { 
+                "0" : { "name": "punctuation.definition.char.begin.rcaron"}
+            },
+            "end": "'",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.char.end.rcaron"
+                }
+            },
+            "name": "string.quoted.single.char.rcaron"
+        },
+        "charLiteralDoubleQuoted": {
+            "patterns": [
+                {
+                    "include": "#characterEscape"
+                }
+            ],
+            "begin": "@\\\"",
+            "beginCaptures": { 
+                "0" : { "name": "punctuation.definition.char.begin.rcaron"}
+            },
+            "end": "\\\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.char.end.rcaron"
+                }
+            },
+            "name": "string.quoted.double.char.rcaron"
+        },
+        "characterEscape": {
+            "patterns": [
+                {
+                    "match": "\\\\(?:['\\\\0abfnrtv])",
+                    "name": "constant.character.escape"
+                },
+                {
+                    "comment": "utf 16 escapes",
+                    "match": "\\\\u([0-9a-fA-F]{4})",
+                    "name": "constant.character.escape"
+                },
+                {
+                    "comment": "utf 32 escapes",
+                    "match": "\\\\U([0-9a-fA-F]{8})",
+                    "name": "constant.character.escape"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "invalid.illegal"
+                }
+            ]
+        },
         "string": {
             "begin": "'",
             "beginCaptures": {
@@ -142,7 +213,7 @@
             "name": "string.quoted.single",
             "patterns": [
                 {
-                    "include": "#singleQuotedStringContent"
+                    "include": "#characterEscape"
                 }
             ]
         },
@@ -202,28 +273,6 @@
                     "name": "entity.name.type.rcaron"
                 }
             }
-        },
-        "singleQuotedStringContent": {
-            "patterns": [
-                {
-                    "match": "\\\\(?:['\\\\0abfnrtv])",
-                    "name": "constant.character.escape"
-                },
-                {
-                    "comment": "utf 16 escapes",
-                    "match": "\\\\u([0-9a-fA-F]{4})",
-                    "name": "constant.character.escape"
-                },
-                {
-                    "comment": "utf 32 escapes",
-                    "match": "\\\\U([0-9a-fA-F]{8})",
-                    "name": "constant.character.escape"
-                },
-                {
-                    "match": "\\\\.",
-                    "name": "invalid.illegal"
-                }
-            ]
         },
         "methodCall": {
             "match": "(?i)(\\w+)\\s*\\(",
