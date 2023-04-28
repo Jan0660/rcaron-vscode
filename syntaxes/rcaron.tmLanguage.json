@@ -103,7 +103,7 @@
             ]
         },
         "controlKeyword": {
-            "match": "(?i)((dowhile)|(loop)|(while)|(return)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default)|(try)|(catch)|(finally)|(throw))",
+            "match": "(?i)((dowhile)|(loop)|(while)|(return)|(break)|(continue)|(foreach)|(qfor)|(for)|(else)|(if)|(switch)|(default)|(try)|(catch)|(finally)|(throw))",
             "name": "keyword.control"
         },
         "variable": {
